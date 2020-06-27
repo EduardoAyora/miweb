@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const landing = require('../controllers/landing');
+const index = require('../controllers/index');
 
 /* GET home page. */
-router.get('/', landing.get_landing);
-router.post('/', landing.submit_lead);
+router.get('/', index.get_index);
+router.post('/', index.post_index);
 
 module.exports = router;

@@ -1,8 +1,20 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
 }
 
-a {
-  color: #00B7FF;
+.instagram-color {
+  background: #e4405f;
+}
+
+.youtube-color {
+  background: #ff0000;
+}
+
+.in-center {
+  text-align: center;
 }
