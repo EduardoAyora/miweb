@@ -16,45 +16,45 @@ html(lang='es')
     section.medium
       .container.text-center
         p.principal-text Tecnologías con las que desarrollo.
-        .skills
-          .card-group.justify-content-center
-            .card
-              .img-card
-                img(src="/images/frontend.svg" alt="imagen frontend").card-img-top
-              .card-body
-                h5.card-title Frontend
-                .container
-                  .row
-                    .col-sm-12.col-xl-6
-                      ul.list-group.list-group-flush
-                        li.list-group-item 
-                          span.font-weight-bold Lenguajes
-                        li.list-group-item Html
-                        li.list-group-item Css
-                        li.list-group-item Javascript
-                    .col-sm-12.col-xl-6
-                      ul.list-group.list-group-flush
-                        li.list-group-item 
-                          span.font-weight-bold Toolkits
-                        li.list-group-item React
-                        li.list-group-item Bootstrap
-            .card
-              .img-card
-                img(src="/images/node.svg" alt="imagen backend").card-img-top
-              .card-body
-                h5.card-title Backend
-                .container
-                  .row
-                    .col-sm-12.col-xl-6
-                      ul.list-group.list-group-flush
-                        li.list-group-item 
-                          span.font-weight-bold Lenguajes
-                        li.list-group-item Javascript-Node
-                        li.list-group-item Php
-                    .col-sm-12.col-xl-6
-                      ul.list-group.list-group-flush
-                        li.list-group-item 
-                          span.font-weight-bold Frameworks
-                        li.list-group-item Express
+    section.container.skills
+      .card-group.justify-content-center
+        .card
+          .img-card
+            img(src="/images/frontend.svg" alt="imagen frontend").card-img-top
+          .card-body
+            h5.card-title Frontend
+            .container
+              .row
+                .col-sm-12.col-xl-6
+                  ul.list-group.list-group-flush
+                    li.list-group-item 
+                      span.font-weight-bold Lenguajes
+                    li.list-group-item Html
+                    li.list-group-item Css
+                    li.list-group-item Javascript
+                .col-sm-12.col-xl-6
+                  ul.list-group.list-group-flush
+                    li.list-group-item 
+                      span.font-weight-bold Toolkits
+                    li.list-group-item React
+                    li.list-group-item Bootstrap
+        .card
+          .img-card
+            img(src="/images/node.svg" alt="imagen backend").card-img-top
+          .card-body
+            h5.card-title Backend
+            .container
+              .row
+                .col-sm-12.col-xl-6
+                  ul.list-group.list-group-flush
+                    li.list-group-item 
+                      span.font-weight-bold Lenguajes
+                    li.list-group-item Javascript-Node
+                    li.list-group-item Php
+                .col-sm-12.col-xl-6
+                  ul.list-group.list-group-flush
+                    li.list-group-item 
+                      span.font-weight-bold Frameworks
+                    li.list-group-item Express
     include common/footer.pug
     +footer()
