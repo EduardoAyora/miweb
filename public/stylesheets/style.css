@@ -48,7 +48,7 @@ footer a {
 }
 
 .card-img-top {
-  width: 300px;
+  max-width: 300px;
 }
 
 .card-body .container .col-sm-12,
