@@ -1,0 +1,13 @@
+doctype html
+html(lang='es')
+  include ../common/head.pug
+  +head("Eduardo Ayora Web")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar()
+    h2 Blog
+    //- each language in siteLangs
+    //-   li= language
+    include ../common/footer.pug
+    +footer()

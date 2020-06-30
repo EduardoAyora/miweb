@@ -1,7 +1,7 @@
 exports.get_index = function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 }
 
-exports.post_index = function(req, res, next) {
-  res.redirect('/');
+exports.get_blog = function(req, res, next) {
+  res.render('blog');
 }

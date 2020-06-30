@@ -2,6 +2,11 @@ body {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+header {
+  /* navbar es fixed por lo tanto ponemos margin bottom aqui */
+  margin-bottom: 55px;
+}
+
 footer {
   color: #ffffff;
   background: #343a40;
@@ -20,8 +25,6 @@ footer a {
 }
 
 .hero {
-  /* navbar es fixed por lo tanto ponemos margin top */
-  margin-top: 55px;
   height: 300px;
   display: flex;
   align-items: center;
