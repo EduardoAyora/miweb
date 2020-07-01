@@ -17,6 +17,8 @@ connect.then((db) => {
     console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
 
+require('./authenticate')(passport);
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

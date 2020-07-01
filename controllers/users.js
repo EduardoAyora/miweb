@@ -6,22 +6,26 @@ exports.get_login = function(req, res, next) {
 }
 
 exports.get_signup = function(req, res, next) {
-  res.render('user/signup', mssgs = {
-    error: req.flash('error')
+  res.render('user/signup', {
+    message: req.flash('signupMessage')
   });
 }
 
-exports.post_signup = function(req, res, next) {
-  User.register(new User({username: req.body.username}),
-    req.body.password, (err, user) => {
-    if(err) {
-      console.log('Hubo un problema');
-      req.flash('error', 'Hubo un problema al crear su cuenta');
-      res.redirect('signup');
-    }
-    else {
-      req.flash('error', 'Te has registrado con éxito');
-      res.redirect('signup');
-    }
-  });
+exports.post_signup = passport.authenticate('local-signup', {
+	successRedirect: 'signup',
+	failureRedirect: 'signup',
+	failureFlash: true // permitir flash messages
+});
+
+exports.post_login = passport.authenticate('local-login', {
+	successRedirect: '/blog',
+	failureRedirect: 'login',
+	failureFlash: true // permitir flash messages
+});
+
+function isLoggedIn (req, res, next) {
+	if (req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect('/');
 }
