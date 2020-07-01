@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var passport = require('passport');
+require('./authenticate')(passport);
 var flash = require('connect-flash');
 
 const url = config.mongoUrl;
@@ -34,14 +35,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
 
+app.use(flash());
 app.use(session({
-  name: 'session-id',
+  // name: 'session-id',
   secret: 'slaesiON-queE-sseecretA',
   saveUninitialized: false,
   resave: false,
-  store: new FileStore()
+  // store: new FileStore()
 }));
-app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
