@@ -50,7 +50,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/posts', blogRouter);
+app.use('/blog', blogRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const user = require('../controllers/posts');
+const blog = require('../controllers/blog');
 
 const auth = (req, res, next) => {
   if(req.isAuthenticated()) {
@@ -9,6 +9,7 @@ const auth = (req, res, next) => {
   res.redirect('/users/login');
 }
 
-// router.get('/', index.get_index);
+router.get('/', blog.get_blog);
+router.get('/add-blog', auth, blog.get_add_blog);
 
 module.exports = router;

@@ -1,10 +1,10 @@
 doctype html
 html(lang='es')
-  include common/head.pug
+  include ../common/head.pug
   +head("Crear Blog")
   body
     header
-      include common/navbar.pug
+      include ../common/navbar.pug
       +navbar(true)
     section.simple-form
       .container
@@ -20,5 +20,5 @@ html(lang='es')
                   label(for="title") Url
                   input(type="text" id="title" name="title" placeholder="Ingresa el título del blog").form-control
                 button(type="submit").btn.btn-primary Confirmar
-    include common/footer.pug
+    include ../common/footer.pug
     +footer()
