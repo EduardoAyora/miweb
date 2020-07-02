@@ -1,11 +1,11 @@
-mixin navbar()
+mixin navbar(logoutButton)
   nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
     .container
       a(href="#").navbar-brand EduardoAyora
       button(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" 
       aria-expanded="false" aria-label="Toggle navigation").navbar-toggler
         span.navbar-toggler-icon
-      div(id="navbarNav").collapse.navbar-collapse
+      div(id="navbarNav").collapse.navbar-collapse.justify-content-between
         ul.navbar-nav
           li.nav-item.active
             a(href="/").nav-link Inicio
@@ -13,3 +13,5 @@ mixin navbar()
             a(href="#").nav-link Portafolio
           li.nav-item
             a(href="/blog").nav-link Blog
+        if logoutButton
+          a(href="/users/logout").nav-link Logout

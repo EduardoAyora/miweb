@@ -12,4 +12,13 @@ router.get('/signup', user.get_signup);
 
 router.post('/signup', user.post_signup);
 
+router.get('/logout', function(req, res){
+  req.logout();
+  // exactamente como funcionan las sesiones
+  if (req.session) {
+    req.session.destroy();
+  }
+  res.redirect('/blog');
+});
+
 module.exports = router;

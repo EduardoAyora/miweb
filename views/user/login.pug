@@ -6,18 +6,22 @@ html(lang='es')
     header
       include ../common/navbar.pug
       +navbar()
-    h2 Login
-    if errors
-      p= errors
-    if success
-      p= success
-    form(method='POST')
-      div.form-group
-        label(for="username") Nombre de usuario
-        input(type="text" id="username" name="username" aria-describedby="emailHelp" placeholder="Ingresa tu username").form-control
-      div.form-group
-        label(for="password") Contraseña
-        input(type="password" id="password" name="password" placeholder="Password").form-control
-      button(type="submit").btn.btn-primary Submit
+    section.simple-form
+      .container
+        .row.justify-content-center
+          .col-12.col-md-6
+            h2 Login
+            if errors
+              p.text-danger= errors
+            if success
+              p.text-success= success
+            form(method='POST')
+              div.form-group
+                label(for="username") Nombre de usuario
+                input(type="text" id="username" name="username" placeholder="Ingresa tu nombre de usuario").form-control
+              div.form-group
+                label(for="password") Contraseña
+                input(type="password" id="password" name="password" placeholder="Contraseña").form-control
+              button(type="submit").btn.btn-primary Submit
     include ../common/footer.pug
     +footer()

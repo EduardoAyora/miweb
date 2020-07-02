@@ -1,0 +1,24 @@
+doctype html
+html(lang='es')
+  include common/head.pug
+  +head("Crear Blog")
+  body
+    header
+      include common/navbar.pug
+      +navbar(true)
+    section.simple-form
+      .container
+        .row.justify-content-center
+          .col-12.col-md-6
+            .container.text-center
+              h2 Crear nuevo blog
+              form(method='POST')
+                div.form-group
+                  label(for="title") Título del blog
+                  input(type="text" id="title" name="title" placeholder="Ingresa el título del blog").form-control
+                div.form-group
+                  label(for="title") Url
+                  input(type="text" id="title" name="title" placeholder="Ingresa el título del blog").form-control
+                button(type="submit").btn.btn-primary Confirmar
+    include common/footer.pug
+    +footer()

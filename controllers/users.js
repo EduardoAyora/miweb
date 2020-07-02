@@ -13,7 +13,7 @@ exports.get_signup = function(req, res, next) {
 }
 
 exports.post_login = passport.authenticate('local', {
-  successRedirect: '/blog',
+  successRedirect: '/add-blog',
   failureRedirect: '/users/login',
   failureFlash: true
 });
