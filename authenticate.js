@@ -11,11 +11,37 @@ module.exports = (passport) => {
       if (!user) {
         return done(null, false, req.flash('error', 'Nombre de usuario incorrecto'));
       }
-      if (user.password != password) {
-      // if (user.validPassword(password)) {
+      if(user.comparePassword(password)) {
         return done(null, false, req.flash('error', 'Contraseña incorrecta'));
       }
       return done(null, user);
+    });
+  }
+  ));
+
+  passport.use('local-signup', new LocalStrategy({
+    passReqToCallback: true
+  },
+  function(req, username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (user) {
+        return done(null, false, req.flash('error', 'El usuario ya existe'));
+      }
+      else {
+        const newUser = new User();
+        newUser.email = email;
+        newUser.password = newUser.encryptPassword(password);
+        console.log(newUser)
+        newUser.save(function(error, newUser){
+          if (err) {
+            return done(err);
+          }
+          else{
+             return done(null, newUser);
+          }
+       });
+      }
     });
   }
   ));
@@ -30,37 +56,3 @@ module.exports = (passport) => {
     });
   });
 }
-
-passport.use('local-signup', new LocalStrategy({
-  passReqToCallback: true
-}, async (req, email, password, done) => {
-  const user = await User.findOne({'email': email})
-  console.log(user)
-  if(user) {
-    return done(null, false, req.flash('signupMessage', 'The Email is already Taken.'));
-  } else {
-    const newUser = new User();
-    newUser.email = email;
-    newUser.password = newUser.encryptPassword(password);
-  console.log(newUser)
-    await newUser.save();
-    done(null, newUser);
-  }
-}));
-
-//
-// passport.use('local-signin', new LocalStrategy({
-//   usernameField: 'email',
-//   passwordField: 'password',
-//   passReqToCallback: true
-// }, async (req, email, password, done) => {
-//   const user = await User.findOne({email: email});
-//   if(!user) {
-//     return done(null, false, req.flash('signinMessage', 'No User Found'));
-//   }
-//   if(!user.comparePassword(password)) {
-//     return done(null, false, req.flash('signinMessage', 'Incorrect Password'));
-//   }
-//   return done(null, user);
-// }));
-//
