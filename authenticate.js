@@ -11,7 +11,7 @@ module.exports = (passport) => {
       if (!user) {
         return done(null, false, req.flash('error', 'Nombre de usuario incorrecto'));
       }
-      if(user.comparePassword(password)) {
+      if(!user.comparePassword(password)) {
         return done(null, false, req.flash('error', 'Contraseña incorrecta'));
       }
       return done(null, user);
@@ -30,7 +30,7 @@ module.exports = (passport) => {
       }
       else {
         const newUser = new User();
-        newUser.email = email;
+        newUser.username = username;
         newUser.password = newUser.encryptPassword(password);
         console.log(newUser)
         newUser.save(function(error, newUser){

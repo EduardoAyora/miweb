@@ -7,10 +7,8 @@ html(lang='es')
       include ../common/navbar.pug
       +navbar()
     h2 SignUp
-    if mssgs.error
-      p= mssgs.error
-    //- if success
-    //-   p= success
+    if errors
+      p= errors
     form(method='POST')
       div.form-group
         label(for="username") Nombre de usuario

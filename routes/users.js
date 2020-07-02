@@ -6,13 +6,7 @@ var passport = require('passport');
 /* GET users listing. */
 router.get('/login', user.get_login);
 
-router.post('/login',
-  passport.authenticate('local', {
-    successRedirect: '/blog',
-    failureRedirect: '/users/login',
-    failureFlash: true
-  })
-);
+router.post('/login', user.post_login);
 
 router.get('/signup', user.get_signup);
 

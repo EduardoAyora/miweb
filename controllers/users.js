@@ -11,11 +11,14 @@ exports.get_signup = function(req, res, next) {
   res.render('user/signup', {errors});
 }
 
-exports.post_signup = function(req, res, next) {
-  User.create(req.body)
-    .then((user) => {
-        console.log('User Created ', user);
-        res.redirect('/login');
-    }, (err) => next(err))
-    .catch((err) => next(err));
-}
+exports.post_login = passport.authenticate('local', {
+  successRedirect: '/blog',
+  failureRedirect: '/users/login',
+  failureFlash: true
+});
+
+exports.post_signup = passport.authenticate('local-signup', {
+		successRedirect: '/users/login',
+		failureRedirect: '/users/signup',
+		failureFlash: true
+	});

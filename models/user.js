@@ -22,7 +22,7 @@ User.methods.encryptPassword = (password) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
 
-User.methods.comparePassword= function (password) {
+User.methods.comparePassword = function (password) {
   return bcrypt.compareSync(password, this.password);
 };
 
