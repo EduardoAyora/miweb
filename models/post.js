@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 var Post = new Schema({
     title: {
       type: String,
-      default: false
+      required: true
     },
-    body: {
+    url: {
       type: String,
-      default: false
+      required: true
     },
     date: {
       type: Date,

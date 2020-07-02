@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
-const index = require('../controllers/index');
+const user = require('../controllers/posts');
 
 const auth = (req, res, next) => {
   if(req.isAuthenticated()) {
@@ -10,9 +9,6 @@ const auth = (req, res, next) => {
   res.redirect('/users/login');
 }
 
-router.get('/', index.get_index);
-
-router.get('/blog', index.get_blog);
-router.get('/add-blog', auth, index.get_add_blog);
+// router.get('/', index.get_index);
 
 module.exports = router;
