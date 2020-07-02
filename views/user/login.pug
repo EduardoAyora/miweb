@@ -9,6 +9,8 @@ html(lang='es')
     h2 Login
     if errors
       p= errors
+    if success
+      p= success
     form(method='POST')
       div.form-group
         label(for="username") Nombre de usuario

@@ -38,7 +38,7 @@ module.exports = (passport) => {
             return done(err);
           }
           else{
-             return done(null, newUser);
+             return done(null, newUser, req.flash('success', 'Registro exitoso'));
           }
        });
       }
