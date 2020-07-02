@@ -11,5 +11,6 @@ const auth = (req, res, next) => {
 
 router.get('/', blog.get_blog);
 router.get('/add-blog', auth, blog.get_add_blog);
+router.post('/add-blog', auth, blog.post_add_blog);
 
 module.exports = router;

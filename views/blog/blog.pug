@@ -7,7 +7,12 @@ html(lang='es')
       include ../common/navbar.pug
       +navbar()
     h2 Blog
-    //- each language in siteLangs
-    //-   li= language
+    if errors
+      p.text-danger= errors
+    if success
+      p.text-success= success
+    ul
+      each post in posts
+        li= post
     include ../common/footer.pug
     +footer()
