@@ -6,19 +6,16 @@ mixin footer()
         i.fab.fa-instagram.fa-lg  Instagram
       a(href="/").text-light
         i.fab.fa-youtube.fa-lg  YouTube
-      script(src="/javascripts/jquery.min.js")
-      script(src="/bootstrap/js/bootstrap.min.js")
-      
-      script.
-        var url = $(location).attr('pathname');
-        console.log(url);
-        switch (url) {
-          case '/blog':
-            $("#link-blog").addClass("active")
-            break;
-          case 'link-portafolio':
-            $("#link-portafolio").addClass("active")
-            break;
-          default:
-            $("#link-inicio").addClass("active")
-        }
+  script(src="/javascripts/jquery.min.js")
+  script(src="/bootstrap/js/bootstrap.min.js")
+  
+  script.
+    var url = $(location).attr('pathname');
+    if(url.includes('/blog')){
+      $("#link-blog").addClass("active")
+    }
+    else if (url.includes('link-portafolio')) {
+      $("#link-portafolio").addClass("active")
+    }else {
+      $("#link-inicio").addClass("active")
+    }

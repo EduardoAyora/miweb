@@ -17,7 +17,8 @@ html(lang='es')
         .content
           each post in posts
             article
-              h1 
+              h2
                 a(href=`/blog/${post.url}`)= post.title
+              //- img(src="/images/node.svg")
     include ../common/footer.pug
     +footer()
