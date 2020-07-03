@@ -14,6 +14,9 @@ module.exports = (passport) => {
       if(!user.comparePassword(password)) {
         return done(null, false, req.flash('error', 'Contraseña incorrecta'));
       }
+      if(!user.admin) {
+        return done(null, false, req.flash('error', 'No eres administrador'));
+      }
       return done(null, user);
     });
   }
