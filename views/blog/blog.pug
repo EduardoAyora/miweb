@@ -6,13 +6,16 @@ html(lang='es')
     header
       include ../common/navbar.pug
       +navbar()
-    h2 Blog
-    if errors
-      p.text-danger= errors
-    if success
-      p.text-success= success
-    ul
-      each post in posts
-        li= post
+    section.simple-form
+      .container
+        .text-center
+          h2 Blog
+        if errors
+          p.text-danger= errors
+        if success
+          p.text-success= success
+        ul
+          each post in posts
+            li= post
     include ../common/footer.pug
     +footer()
