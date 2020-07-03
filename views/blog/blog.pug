@@ -14,8 +14,10 @@ html(lang='es')
           p.text-danger= errors
         if success
           p.text-success= success
-        ul
+        .content
           each post in posts
-            li= post
+            article
+              h1 
+                a(href=`/blog/${post.url}`)= post.title
     include ../common/footer.pug
     +footer()

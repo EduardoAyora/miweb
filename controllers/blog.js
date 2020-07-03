@@ -1,4 +1,5 @@
 var Post = require('../models/post');
+const fs = require('fs');
 
 exports.get_blog = function(req, res, next) {
   const success = req.flash('success') || [];
@@ -28,10 +29,21 @@ exports.post_add_blog = function(req, res, next) {
     newPost.save(function(error, newPost){
       if (err) { return err }
       else {
-        req.flash('success', 'El post se ha creado con éxito');
-        res.redirect('/blog');
+        fs.readFile(`views/blog/posts/PLANTILLA.pug`, 'utf-8', (err, data) => {
+          if(err) {
+            if (err) { return err }
+          }
+          fs.appendFile(`views/blog/posts/${url}.pug`, `${data}`, (err) => {
+            if (err) { return err }
+            req.flash('success', 'El post se ha creado con éxito');
+            res.redirect('/blog');
+          });
+        });
       }
     });
-
   });
+}
+
+exports.get_blog_url = function(req, res, next) {
+  res.render(`blog/posts/${req.params.url}`);
 }
