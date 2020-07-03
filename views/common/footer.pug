@@ -8,3 +8,17 @@ mixin footer()
         i.fab.fa-youtube.fa-lg  YouTube
       script(src="/javascripts/jquery.min.js")
       script(src="/bootstrap/js/bootstrap.min.js")
+      
+      script.
+        var url = $(location).attr('pathname');
+        console.log(url);
+        switch (url) {
+          case '/blog':
+            $("#link-blog").addClass("active")
+            break;
+          case 'link-portafolio':
+            $("#link-portafolio").addClass("active")
+            break;
+          default:
+            $("#link-inicio").addClass("active")
+        }

@@ -7,11 +7,11 @@ mixin navbar(logoutButton)
         span.navbar-toggler-icon
       div(id="navbarNav").collapse.navbar-collapse.justify-content-between
         ul.navbar-nav
-          li.nav-item.active
+          li(id="link-inicio").nav-item
             a(href="/").nav-link Inicio
-          li.nav-item
-            a(href="#").nav-link Portafolio
-          li.nav-item
+          li(id="link-portafolio").nav-item
+            a(href="/").nav-link Portafolio
+          li(id="link-blog").nav-item
             a(href="/blog").nav-link Blog
         if logoutButton
           a(href="/users/logout").nav-link Logout
