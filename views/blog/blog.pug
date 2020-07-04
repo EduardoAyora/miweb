@@ -6,17 +6,23 @@ html(lang='es')
     header
       include ../common/navbar.pug
       +navbar()
-    section.simple-form
-      .container
-        if errors
-          p.text-danger= errors
-        if success
-          p.text-success= success
-        .content
+    .container
+      .blog
+        .blog-container
+          if errors
+            p.text-danger= errors
+          if success
+            p.text-success= success
           each post in posts
-            article
-              h2
-                a(href=`/blog/${post.url}`)= post.title
-              p= post.description
+            article.post-container
+              .meta
+                i.fas.fa-calendar-alt
+                | &nbsp;&nbsp;
+                span= post.createdAt.toLocaleDateString("es-ES")
+              .post-header
+                h2
+                  a(href=`/blog/${post.url}`)= post.title
+              .post-body
+                p= post.description
     include ../common/footer.pug
     +footer()

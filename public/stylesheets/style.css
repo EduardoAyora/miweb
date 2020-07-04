@@ -44,7 +44,6 @@ footer a {
 }
 
 .simple-form {
-  min-height: 600px;
   display: flex;
   align-items: center;
 }
@@ -64,4 +63,37 @@ footer a {
 .card-body .container .col-xl-4 {
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.blog {
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.blog-container {
+  padding-top: 40px;
+  overflow-x: hidden;
+  max-width: 75%;
+}
+
+.post-container {
+  min-height: 300px;
+}
+
+.post-header {
+  min-height: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.meta {
+  float: right;
+  display: inline-block;
+  margin: auto 40px;
+}
+
+.post-body {
+  min-height: 100px;
 }
