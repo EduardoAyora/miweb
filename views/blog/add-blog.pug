@@ -17,9 +17,6 @@ html(lang='es')
                   label(for="title") Título del blog
                   input(type="text" id="title" name="title" placeholder="Ingresa el título del blog" value=post.title required).form-control
                 .form-group
-                  label(for="imageFile") Escoge una imagen:
-                  input(type="file" id="imageFile" name="imageFile" accept="image/png, image/jpeg, image/jpg, image/gif, image/svg")
-                .form-group
                   label(for="content") Contenido
                   textarea(id="content" name="content" rows="24" required).form-control= post.content
                 button(type="submit").btn.btn-primary Confirmar
