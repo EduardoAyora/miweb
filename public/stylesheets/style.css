@@ -4,7 +4,7 @@ body {
 
 header {
   /* navbar es fixed por lo tanto ponemos margin bottom aqui */
-  margin-bottom: 55px;
+  height: 55px;
 }
 
 footer {
@@ -41,6 +41,12 @@ footer a {
   width: 75%;
   margin: 40px auto;
   min-height: 500px;
+}
+
+.simple-form {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
 }
 
 .img-card {

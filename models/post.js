@@ -4,16 +4,17 @@ var Schema = mongoose.Schema;
 var Post = new Schema({
     title: {
       type: String,
-      default: false
+      required: true
     },
-    body: {
+    url: {
       type: String,
-      default: false
+      required: true
     },
-    date: {
-      type: Date,
-      default: Date.now
+    content: {
+      type: String
     }
+},{
+    timestamps: true
 });
 
 module.exports = mongoose.model('Post', Post);
