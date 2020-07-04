@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const blog = require('../controllers/blog');
+const uploadImages = require('../uploadImages');
 
 const auth = (req, res, next) => {
   if(req.isAuthenticated()) {
@@ -11,7 +12,7 @@ const auth = (req, res, next) => {
 
 router.get('/', blog.get_blog);
 router.get('/add-blog', auth, blog.get_add_blog);
-// router.post('/add-blog', auth, blog.upload.single('imageFile'), blog.post_add_blog);
+// router.post('/add-blog', auth, uploadImages.upload.single('imageFile'), blog.post_add_blog);
 router.post('/add-blog', auth, blog.post_add_blog);
 router.get('/:url', blog.get_blog_url);
 

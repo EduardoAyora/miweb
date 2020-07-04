@@ -4,6 +4,7 @@ const marked = require('marked');
 const createDomPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
 const dompurify = createDomPurify(new JSDOM().window);
+const slugify = require('slugify');
 
 var Post = new Schema({
     title: {
@@ -12,7 +13,8 @@ var Post = new Schema({
     },
     url: {
       type: String,
-      required: true
+      required: true,
+      unique: true
     },
     content: {
       type: String,
@@ -27,6 +29,12 @@ var Post = new Schema({
 });
 
 Post.pre('validate', function (next) {
+  if(this.title) {
+    this.url = slugify(this.title, {
+      lower: true,
+      strict: true
+    })
+  }
   if(this.content) {
     this.sanitizedHtml = dompurify.sanitize(marked(this.content));
   }
