@@ -6,7 +6,7 @@ html(lang='es')
     header
       include ../common/navbar.pug
       +navbar()
-    | !{post[0].title}
-    | !{post[0].content}
+    | !{post.title}
+    | !{post.sanitizedHtml}
     include ../common/footer.pug
     +footer()

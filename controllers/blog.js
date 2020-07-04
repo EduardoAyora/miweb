@@ -24,12 +24,13 @@ exports.post_add_blog = function(req, res, next) {
       req.flash('error', 'Esta url ya existe');
       return res.redirect('/blog');
     }
-    const newPost = new Post();
-    newPost.title = title;
-    newPost.url = url;
-    newPost.content = content;
+    const newPost = new Post({
+      title: title,
+      url: url,
+      content: content
+    });
     newPost.save(function(error, newPost){
-      if (err) { return err }
+      if (error) { return error }
       else {
         req.flash('success', 'El post se ha creado con éxito');
         res.redirect('/blog');
@@ -39,7 +40,7 @@ exports.post_add_blog = function(req, res, next) {
 }
 
 exports.get_blog_url = function(req, res, next) {
-  Post.find({url: req.params.url}, function (err, post) {
+  Post.findOne({url: req.params.url}, function (err, post) {
     if (err) { return err }
     if (!post) {
       req.flash('error', 'Este post no fue encontrado');

@@ -12,7 +12,7 @@ html(lang='es')
           .col-12.col-md-8
             .container.text-center
               h2 Crear nuevo blog
-              form(method='POST' enctype="multipart/form-data")
+              form(method='POST')
                 .form-group
                   label(for="title") Título del blog
                   input(type="text" id="title" name="title" placeholder="Ingresa el título del blog" required).form-control
@@ -24,7 +24,7 @@ html(lang='es')
                   input(type="file" id="imageFile" name="imageFile" accept="image/png, image/jpeg, image/jpg, image/gif, image/svg")
                 .form-group
                   label(for="content") Contenido
-                  textarea(id="content" name="content" rows="24").form-control
+                  textarea(id="content" name="content" rows="24" required).form-control
                 button(type="submit").btn.btn-primary Confirmar
     include ../common/footer.pug
     +footer()
