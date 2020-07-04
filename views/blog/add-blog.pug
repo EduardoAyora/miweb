@@ -12,13 +12,16 @@ html(lang='es')
           .col-12.col-md-8
             .container.text-center
               h2 Crear nuevo blog
-              form(method='POST')
+              form(method='POST' enctype="multipart/form-data")
                 .form-group
                   label(for="title") Título del blog
                   input(type="text" id="title" name="title" placeholder="Ingresa el título del blog" required).form-control
                 .form-group
                   label(for="url") Url
                   input(type="text" id="url" name="url" placeholder="Ingresa la url del blog" required).form-control
+                .form-group
+                  label(for="imageFile") Escoge una imagen:
+                  input(type="file" id="imageFile" name="imageFile" accept="image/png, image/jpeg, image/jpg, image/gif, image/svg")
                 .form-group
                   label(for="content") Contenido
                   textarea(id="content" name="content" rows="24").form-control
