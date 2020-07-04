@@ -14,11 +14,14 @@ html(lang='es')
               h2 Crear nuevo blog
               form(method='POST')
                 .form-group
-                  label(for="title") Título del blog
+                  label(for="title") Título del post
                   input(type="text" id="title" name="title" placeholder="Ingresa el título del blog" value=post.title required).form-control
                 .form-group
+                  label(for="description") Descripción del post
+                  textarea(id="description" name="description" rows="4" required).form-control= post.description
+                .form-group
                   label(for="content") Contenido
-                  textarea(id="content" name="content" rows="24" required).form-control= post.content
+                  textarea(id="content" name="content" rows="20" required).form-control= post.content
                 button(type="submit").btn.btn-primary Confirmar
     include ../common/footer.pug
     +footer()

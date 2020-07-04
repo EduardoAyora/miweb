@@ -8,8 +8,6 @@ html(lang='es')
       +navbar()
     section.simple-form
       .container
-        .text-center
-          h2 Blog
         if errors
           p.text-danger= errors
         if success
@@ -19,6 +17,6 @@ html(lang='es')
             article
               h2
                 a(href=`/blog/${post.url}`)= post.title
-              //- img(src="/images/node.svg")
+              p= post.description
     include ../common/footer.pug
     +footer()

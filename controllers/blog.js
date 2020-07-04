@@ -7,9 +7,13 @@ exports.get_blog = function(req, res, next) {
   Post.find({}, {
     title: 'title',
     createdAt: 'createdAt',
-    url: 'url'
+    url: 'url',
+    description: 'description'
   }, function (err, posts) {
-    if (err) { return err }
+    if (err) {
+      console.log(err);
+      next(err);
+    }
     res.render('blog/blog', {posts, errors, success});
   }).sort({
     createdAt: 'desc'
@@ -23,9 +27,11 @@ exports.get_add_blog = function(req, res, next) {
 exports.post_add_blog = function(req, res, next) {
   const title = req.body.title;
   const content = req.body.content;
+  const description = req.body.description;
   const newPost = new Post({
     title: title,
-    content: content
+    content: content,
+    description: description
   });
   newPost.save(function(error, post){
     if (error) {
@@ -41,12 +47,14 @@ exports.post_add_blog = function(req, res, next) {
 
 exports.get_blog_url = function(req, res, next) {
   Post.findOne({url: req.params.url}, function (err, post) {
-    if (err) { return err }
+    if (err) {
+      console.log(err);
+      next(err);
+    }
     if (!post) {
       req.flash('error', 'Este post no fue encontrado');
       return res.redirect('/blog');
     }
-    console.log(post);
     res.render('blog/post', {post});
   });
 }
