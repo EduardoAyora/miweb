@@ -71,7 +71,13 @@ exports.get_edit_post = function(req, res, next) {
   });
 }
 
+exports.redirect_edit_image = function(req, res, next) {
+  res.redirect('/blog/images/' + req.post.id);
+}
+
 exports.get_edit_images = function(req, res, next) {
+  const success = req.flash('success') || [];
+  const errors = req.flash().error || [];
   Post.findById(req.params.id, function (err, post) {
     if (err) {
       console.log(err);
@@ -81,7 +87,7 @@ exports.get_edit_images = function(req, res, next) {
       req.flash('error', 'Este post no fue encontrado');
       return res.redirect('/blog/edit-blog');
     }
-    res.render('blog/edit-images', { post: post });
+    res.render('blog/edit-images', { post: post, errors, success });
   });
 }
 

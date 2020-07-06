@@ -19,6 +19,6 @@ router.post('/', auth, blog.post_add_post, blog.saveArticleAndRedirect('add-post
 router.put('/:id', auth, blog.put_post, blog.saveArticleAndRedirect('edit-post'));
 router.delete('/:id', auth, blog.delete_post);
 router.get('/images/:id', auth, blog.get_edit_images);
-router.post('/:id', auth, blog.post_image, uploadImages.upload.single('imageFile'), blog.get_edit_images);
+router.post('/:id', auth, blog.post_image, uploadImages.upload.single('imageFile'), blog.redirect_edit_image);
 
 module.exports = router;

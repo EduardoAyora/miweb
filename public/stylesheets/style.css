@@ -73,6 +73,14 @@ footer a {
   font-family: 'Museo Sans W01', helvetica, arial, sans-serif;
 }
 
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  min-height: 600px;
+}
+
 .blog-container {
   padding-top: 40px;
   padding-bottom: 80px;

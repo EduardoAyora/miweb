@@ -18,7 +18,7 @@ const imageFileFilter = (req, file, cb) => {
   if(!file.originalname.match(/\.(jpg|jpeg|png|gif|svg)$/)) {
     return cb(new Error('Solo puedes subir imágenes'), false);
   }
-  // req.flash('success', 'Registro exitoso')
+  req.flash('success', 'La imagen se agregó con éxito');
   cb(null, true);
 };
 
