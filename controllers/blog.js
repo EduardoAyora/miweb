@@ -24,11 +24,6 @@ exports.get_add_post = function(req, res, next) {
   res.render('blog/add-post', { post: new Post() });
 }
 
-exports.post_add_post = function(req, res, next) {
-  req.post = new Post();
-  next();
-}
-
 exports.get_blog_url = function(req, res, next) {
   Post.findOne({url: req.params.url}, function (err, post) {
     if (err) {
@@ -76,6 +71,25 @@ exports.get_edit_post = function(req, res, next) {
   });
 }
 
+exports.get_edit_images = function(req, res, next) {
+  Post.findById(req.params.id, function (err, post) {
+    if (err) {
+      console.log(err);
+      next(err);
+    }
+    if (!post) {
+      req.flash('error', 'Este post no fue encontrado');
+      return res.redirect('/blog/edit-blog');
+    }
+    res.render('blog/edit-images', { post: post });
+  });
+}
+
+exports.post_add_post = function(req, res, next) {
+  req.post = new Post();
+  next();
+}
+
 exports.put_post = function(req, res, next) {
   Post.findById({_id: req.params.id}, function (err, post) {
     if (err) {
@@ -83,6 +97,22 @@ exports.put_post = function(req, res, next) {
       next(err);
     }
     req.post = post;
+    next();
+  });
+}
+
+exports.post_image = function(req, res, next) {
+  Post.findById({_id: req.params.id}, function (err, post) {
+    if (err) {
+      console.log(err);
+      next(err);
+    }
+    req.post = post;
+    // Es necesario que la carpeta blog este creada para que funcione
+    const dir = `public/images/blog/${req.post.url}`;
+    if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+    }
     next();
   });
 }
