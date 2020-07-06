@@ -13,7 +13,6 @@ html(lang='es')
             h1
               a(href=`/blog/${post.url}`)= post.title
           .view-post-body
-            p
-              | !{post.sanitizedHtml}
+            | !{post.sanitizedHtml}
     include ../common/footer.pug
     +footer()
