@@ -1,0 +1,27 @@
+doctype html
+html(lang='es')
+  include ../common/head.pug
+  +head("Editar Blog")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar(true)
+    section
+      .container.mt-4.mb-4
+        .row.justify-content-center
+          .col-12.col-md-8
+            .container.text-center
+              h2 Editar blog
+              form(action=`/blog/${post.id}/?_method=PUT` method='POST')
+                .form-group
+                  label(for="title") Título del post
+                  input(type="text" id="title" name="title" placeholder="Ingresa el título del blog" value=post.title required).form-control
+                .form-group
+                  label(for="description") Descripción del post
+                  textarea(id="description" name="description" rows="4" required).form-control= post.description
+                .form-group
+                  label(for="content") Contenido
+                  textarea(id="content" name="content" rows="20" required).form-control= post.content
+                button(type="submit").btn.btn-primary Confirmar
+    include ../common/footer.pug
+    +footer()

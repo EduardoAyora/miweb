@@ -13,6 +13,7 @@ html(lang='es')
             p.text-danger= errors
           if success
             p.text-success= success
+          a(href='/blog/add-post').btn.btn-primary Nuevo
           each post in posts
             article.post-container
               .meta
@@ -24,5 +25,9 @@ html(lang='es')
                   a(href=`/blog/${post.url}`)= post.title
               .post-body
                 p= post.description
+              .options
+                a(href=`/blog/edit/${post.id}`).btn.btn-info Editar
+                form(action=`/blog/${post.id}?_method=DELETE` method='POST').d-inline
+                  button(type='submit').btn.btn-danger Eliminar
     include ../common/footer.pug
     +footer()

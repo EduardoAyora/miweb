@@ -46,6 +46,7 @@ footer a {
 .simple-form {
   display: flex;
   align-items: center;
+  min-height: 600px;
 }
 
 .img-card {

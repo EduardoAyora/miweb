@@ -10,6 +10,7 @@ var FileStore = require('session-file-store')(session);
 var passport = require('passport');
 require('./authenticate')(passport);
 var flash = require('connect-flash');
+const methodOverride = require('method-override');
 
 const url = config.mongoUrl;
 const connect = mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
@@ -49,6 +50,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
