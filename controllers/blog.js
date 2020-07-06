@@ -105,11 +105,9 @@ exports.saveArticleAndRedirect = function (path) {
     newPost.description = req.body.description;
     newPost.save(function(error, post){
       if (error) {
-        console.log(error);
-        res.render(`blog/${path}`, { post: newPost });
+        res.render(`blog/${path}`, { post: newPost, error });
       }
       else {
-        req.flash('success', 'El post se ha cargado con éxito');
         res.redirect(`/blog/${post.url}`);
       }
     });

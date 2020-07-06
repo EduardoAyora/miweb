@@ -8,6 +8,8 @@ html(lang='es')
       +navbar(true)
     section
       .container.mt-4.mb-4
+        if error
+          p.text-danger= error
         .row.justify-content-center
           .col-12.col-md-8
             .container.text-center

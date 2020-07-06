@@ -17,7 +17,7 @@ router.post('/add-post', auth, blog.post_add_post, blog.saveArticleAndRedirect('
 router.get('/edit-blog', auth, blog.get_edit_blog);
 router.get('/edit/:id', auth, blog.get_edit_post);
 router.get('/:url', blog.get_blog_url);
-router.put('/:id', auth, blog.put_post, blog.saveArticleAndRedirect('edit-blog'));
+router.put('/:id', auth, blog.put_post, blog.saveArticleAndRedirect('edit-post'));
 router.delete('/:id', auth, blog.delete_post);
 
 module.exports = router;
