@@ -14,7 +14,7 @@ html(lang='es')
           .col-12.col-md-8
             .container.text-center
               h2 Crear nuevo blog
-              form(method='POST')
+              form(action="/blog" method='POST')
                 .form-group
                   label(for="title") Título del post
                   input(type="text" id="title" name="title" placeholder="Ingresa el título del blog" value=post.title required).form-control
