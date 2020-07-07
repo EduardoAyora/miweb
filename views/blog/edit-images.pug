@@ -20,7 +20,7 @@ html(lang='es')
                 .image-file
                   a(href=`/images/blog/${post.url}/${file}`) !{file}
                   | &nbsp;&nbsp;
-                  form(action=`/blog/images/${post.id}?_method=DELETE` method='POST').d-inline
+                  form(action=`/blog/images/${post.id}?_method=DELETE` method='POST' onsubmit="return confirm('¿Realmente quieres eliminar esta imagen?');").d-inline
                     input(name="file" type="hidden" value=`${file}`)
                     button(type='submit').btn.btn-danger Eliminar
           form(method='POST' enctype='multipart/form-data' action=`/blog/${post.id}`)
