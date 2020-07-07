@@ -1,5 +1,6 @@
 var Post = require('../models/post');
 const fs = require('fs');
+var rimraf = require("rimraf");
 
 exports.get_blog = function(req, res, next) {
   const success = req.flash('success') || [];
@@ -129,9 +130,13 @@ exports.delete_post = function(req, res, next) {
   Post.findByIdAndDelete({_id: req.params.id}, function (err, post) {
     if (err) {
       console.log(err);
+      req.flash('error', err);
       next(err);
     }
-    res.redirect('/blog/edit-blog');
+    rimraf(`public/images/blog/${post.url}`, function () {
+      req.flash('success', 'El post se ha eliminado con éxito');
+      res.redirect('/blog/edit-blog');
+    });
   });
 }
 

@@ -25,7 +25,7 @@ html(lang='es')
                     button(type='submit').btn.btn-danger Eliminar
           form(method='POST' enctype='multipart/form-data' action=`/blog/${post.id}`)
             .form-group
-              label(for="imageFile") Escoge una imagen:
+              label(for="imageFile") Subir una imagen:
               input(type="file" id="imageFile" name="imageFile" accept="image/png, image/jpeg, image/jpg, image/gif, image/svg" required).form-control-file
             button(type="submit").btn.btn-primary Confirmar
     include ../common/footer.pug

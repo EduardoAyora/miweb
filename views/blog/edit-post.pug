@@ -16,7 +16,7 @@ html(lang='es')
               .mb-4
                 h2 Editar blog
                 p 
-                  u !{post.url}
+                  u /images/blog/!{post.url}/
                 a(href=`/blog/images/${post.id}`).btn.btn-info Administrar imágenes
               form(action=`/blog/${post.id}/?_method=PUT` method='POST')
                 .form-group
