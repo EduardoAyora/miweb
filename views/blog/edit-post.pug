@@ -13,8 +13,11 @@ html(lang='es')
         .row.justify-content-center
           .col-12.col-md-8
             .container.text-center
-              h2 Editar blog
-              a(href=`/blog/images/${post.id}`).btn.btn-info Subir imágenes
+              .mb-4
+                h2 Editar blog
+                p 
+                  u !{post.url}
+                a(href=`/blog/images/${post.id}`).btn.btn-info Administrar imágenes
               form(action=`/blog/${post.id}/?_method=PUT` method='POST')
                 .form-group
                   label(for="title") Título del post

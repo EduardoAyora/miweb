@@ -151,6 +151,16 @@ h1 a:hover {
   line-height: 1.8em;
 }
 
+.images-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.image-file {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /*
 Copyright (c) 2017 Chris Patuzzo
 https://twitter.com/chrispatuzzo

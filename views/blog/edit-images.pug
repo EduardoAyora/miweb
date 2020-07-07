@@ -8,16 +8,25 @@ html(lang='es')
       +navbar(true)
     section
       .centered
-        .text-center
-          h2 Subir imagen
-          if errors
-            p.text-danger= errors
-          if success
-            p.text-success= success
+        .div
+          .images-container.text-center
+            h2 Administrar imágenes
+            if errors
+              p.text-danger= errors
+            if success
+              p.text-success= success
+            if files
+              each file in files
+                .image-file
+                  a(href=`/images/blog/${post.url}/${file}`) !{file}
+                  | &nbsp;&nbsp;
+                  form(action=`/blog/images/${post.id}?_method=DELETE` method='POST').d-inline
+                    input(name="file" type="hidden" value=`${file}`)
+                    button(type='submit').btn.btn-danger Eliminar
           form(method='POST' enctype='multipart/form-data' action=`/blog/${post.id}`)
             .form-group
               label(for="imageFile") Escoge una imagen:
-              input(type="file" id="imageFile" name="imageFile" accept="image/png, image/jpeg, image/jpg, image/gif, image/svg" required)
+              input(type="file" id="imageFile" name="imageFile" accept="image/png, image/jpeg, image/jpg, image/gif, image/svg" required).form-control-file
             button(type="submit").btn.btn-primary Confirmar
     include ../common/footer.pug
     +footer()

@@ -78,7 +78,7 @@ exports.redirect_edit_image = function(req, res, next) {
 exports.get_edit_images = function(req, res, next) {
   const success = req.flash('success') || [];
   const errors = req.flash().error || [];
-  Post.findById(req.params.id, function (err, post) {
+  Post.findById(req.params.postId, function (err, post) {
     if (err) {
       console.log(err);
       next(err);
@@ -87,7 +87,9 @@ exports.get_edit_images = function(req, res, next) {
       req.flash('error', 'Este post no fue encontrado');
       return res.redirect('/blog/edit-blog');
     }
-    res.render('blog/edit-images', { post: post, errors, success });
+    fs.readdir('public/images/blog/' + post.url + '/', (err, files) => {
+      res.render('blog/edit-images', { post: post, files, errors, success });
+    });
   });
 }
 
@@ -117,7 +119,7 @@ exports.post_image = function(req, res, next) {
     // Es necesario que la carpeta blog este creada para que funcione
     const dir = `public/images/blog/${req.post.url}`;
     if (!fs.existsSync(dir)){
-        fs.mkdirSync(dir);
+      fs.mkdirSync(dir);
     }
     next();
   });
@@ -130,6 +132,25 @@ exports.delete_post = function(req, res, next) {
       next(err);
     }
     res.redirect('/blog/edit-blog');
+  });
+}
+
+exports.delete_image = function(req, res, next) {
+  Post.findById({_id: req.params.postId}, function (err, post) {
+    if (err) {
+      console.log(err);
+      next(err);
+    }
+    req.post = post;
+    const dir = `public/images/blog/${post.url}/${req.body.file}`;
+    fs.unlink(dir, function(err){
+      if(err) {
+        console.log(err);
+        next(err);
+      }
+      req.flash('success', 'La imagen se ha eliminado con éxito');
+      next();
+    });
   });
 }
 
