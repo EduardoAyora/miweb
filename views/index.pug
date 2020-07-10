@@ -8,8 +8,8 @@ html(lang='es')
       +navbar()
     section.hero
       .container.text-center
-        h1 Desarrollador web full stack
-        p.principal-text Sus ideas las pongo en codigo
+        h1 Desarrollador web
+        p.principal-text Sus ideas las pongo en código
     section.medium
       .container.text-center
         p.principal-text Tecnologías con las que desarrollo.
@@ -53,5 +53,15 @@ html(lang='es')
                     li.list-group-item 
                       span.font-weight-bold Frameworks
                     li.list-group-item Express
+    section.container.projects
+      .container.text-center
+        h2 Portafolio
+      .container
+        .blog
+          .view-post
+            .proyect-header
+              h1= post.title
+            .view-post-body
+              | !{post.sanitizedHtml}
     include common/footer.pug
     +footer()
