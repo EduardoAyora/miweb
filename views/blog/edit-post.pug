@@ -28,6 +28,9 @@ html(lang='es')
                 .form-group
                   label(for="content") Contenido
                   textarea(id="content" name="content" rows="20" required).form-control= post.content
+                .form-check.mb-2
+                  input(type="checkbox" id="project" name="project" checked=post.project onclick="return confirm('¿Quieres agregar/quitar este post de proyectos?');").form-check-input
+                  label(for="project").form-check-label Es un proyecto
                 button(type="submit").btn.btn-primary Confirmar
     include ../common/footer.pug
     +footer()

@@ -20,6 +20,10 @@ var Post = new Schema({
       required: true,
       unique: true
     },
+    project: {
+      type: Boolean,
+      default: false
+    },
     content: {
       type: String,
       required: true

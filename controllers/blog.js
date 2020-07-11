@@ -5,7 +5,7 @@ var rimraf = require("rimraf");
 exports.get_blog = function(req, res, next) {
   const success = req.flash('success') || [];
   const errors = req.flash().error || [];
-  Post.find({}, {
+  Post.find({project: false}, {
     title: 'title',
     createdAt: 'createdAt',
     url: 'url',
@@ -165,6 +165,12 @@ exports.saveArticleAndRedirect = function (path) {
     newPost.title = req.body.title;
     newPost.content = req.body.content;
     newPost.description = req.body.description;
+    if (req.body.project) {
+      newPost.project = true;
+    }
+    else {
+      newPost.project = false;
+    }
     newPost.save(function(error, post){
       if (error) {
         res.render(`blog/${path}`, { post: newPost, error });

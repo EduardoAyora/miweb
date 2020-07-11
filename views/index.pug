@@ -57,11 +57,12 @@ html(lang='es')
       .container.text-center
         h2 Portafolio
       .container
-        .blog
-          .view-post
-            .proyect-header
-              h1= post.title
-            .view-post-body
-              | !{post.sanitizedHtml}
+        each post in posts
+          .blog
+            .view-post
+              .proyect-header
+                h1= post.title
+              .view-post-body
+                | !{post.sanitizedHtml}
     include common/footer.pug
     +footer()
