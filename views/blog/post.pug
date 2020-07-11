@@ -8,11 +8,13 @@ html(lang='es')
       +navbar()
     .container
       .blog
-        .view-post
-          .post-header
-            h1
-              a(href=`/blog/${post.url}`)= post.title
-          .view-post-body
-            | !{post.sanitizedHtml}
+        .row.justify-content-center
+          .col-12.col-lg-9
+            .view-post
+              .post-header
+                h1
+                  a(href=`/blog/${post.url}`)= post.title
+              .view-post-body
+                | !{post.sanitizedHtml}
     include ../common/footer.pug
     +footer()

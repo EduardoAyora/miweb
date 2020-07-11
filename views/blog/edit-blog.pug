@@ -9,25 +9,27 @@ html(lang='es')
     .container
       .blog
         .blog-container
-          if errors
-            p.text-danger= errors
-          if success
-            p.text-success= success
-          a(href='/blog/add-post').btn.btn-primary Nuevo
-          each post in posts
-            article.post-container
-              .meta
-                i.fas.fa-calendar-alt
-                | &nbsp;&nbsp;
-                span= post.createdAt.toLocaleDateString("es-ES")
-              .post-header
-                h1
-                  a(href=`/blog/${post.url}`)= post.title
-              .post-body
-                p= post.description
-              .options
-                a(href=`/blog/edit/${post.id}`).btn.btn-info Editar
-                form(action=`/blog/${post.id}?_method=DELETE` method='POST' onsubmit="return confirm('¿Realmente quieres eliminar este post?');").d-inline
-                  button(type='submit').btn.btn-danger Eliminar
+          .row.justify-content-center
+            .col-12.col-lg-9
+              if errors
+                p.text-danger= errors
+              if success
+                p.text-success= success
+              a(href='/blog/add-post').btn.btn-primary Nuevo
+              each post in posts
+                article.post-container
+                  .meta
+                    i.fas.fa-calendar-alt
+                    | &nbsp;&nbsp;
+                    span= post.createdAt.toLocaleDateString("es-ES")
+                  .post-header
+                    h1
+                      a(href=`/blog/${post.url}`)= post.title
+                  .post-body
+                    p= post.description
+                  .options
+                    a(href=`/blog/edit/${post.id}`).btn.btn-info Editar
+                    form(action=`/blog/${post.id}?_method=DELETE` method='POST' onsubmit="return confirm('¿Realmente quieres eliminar este post?');").d-inline
+                      button(type='submit').btn.btn-danger Eliminar
     include ../common/footer.pug
     +footer()
