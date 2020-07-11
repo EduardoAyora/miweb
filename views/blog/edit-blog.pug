@@ -16,7 +16,9 @@ html(lang='es')
               if success
                 p.text-success= success
               a(href='/blog/add-post').btn.btn-primary Nuevo
-              each post in posts
+          each post in posts
+            .row.justify-content-center
+              .col-12.col-lg-9
                 article.post-container
                   .meta
                     i.fas.fa-calendar-alt

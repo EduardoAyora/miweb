@@ -9,13 +9,13 @@ html(lang='es')
     .container
       .blog
         .blog-container
-          .row.justify-content-center
-            .col-12.col-lg-9
-              if errors
-                p.text-danger= errors
-              if success
-                p.text-success= success
-              each post in posts
+          if errors
+            p.text-danger= errors
+          if success
+            p.text-success= success
+          each post in posts
+            .row.justify-content-center
+              .col-12.col-lg-9
                 article.post-container
                   .meta
                     i.fas.fa-calendar-alt
