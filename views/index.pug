@@ -14,59 +14,60 @@ html(lang='es')
       .container.text-center
         p.principal-text Tecnologías con las que desarrollo.
     section.container.skills
-      .card-group
-        .card
-          .img-card
-            img(src="/images/frontend.svg" alt="imagen frontend").card-img-top
-          .card-body.text-center
-            h5.card-title Frontend
-            .container
-              .row
-                .col-sm-12.col-xl-6
-                  ul.list-group.list-group-flush
-                    li.list-group-item 
-                      span.font-weight-bold Lenguajes
-                    li.list-group-item Html
-                    li.list-group-item Css
-                    li.list-group-item Javascript
-                .col-sm-12.col-xl-6
-                  ul.list-group.list-group-flush
-                    li.list-group-item 
-                      span.font-weight-bold Toolkits
-                    li.list-group-item React
-                    li.list-group-item Bootstrap
-        .card
-          .img-card
-            img(src="/images/node.svg" alt="imagen backend").card-img-top
-          .card-body.text-center
-            h5.card-title Backend
-            .container
-              .row
-                .col-sm-12.col-xl-6
-                  ul.list-group.list-group-flush
-                    li.list-group-item 
-                      span.font-weight-bold Lenguajes
-                    li.list-group-item Javascript-Node
-                    li.list-group-item Php
-                .col-sm-12.col-xl-6
-                  ul.list-group.list-group-flush
-                    li.list-group-item 
-                      span.font-weight-bold Frameworks
-                    li.list-group-item Express
+      .row.justify-content-center
+        .col-12.col-lg-9
+          .card-group
+            .card
+              .img-card
+                img(src="/images/frontend.svg" alt="imagen frontend").card-img-top
+              .card-body.text-center
+                h5.card-title Frontend
+                .container
+                  .row
+                    .col-sm-12.col-xl-6
+                      ul.list-group.list-group-flush
+                        li.list-group-item 
+                          span.font-weight-bold Lenguajes
+                        li.list-group-item Html
+                        li.list-group-item Css
+                        li.list-group-item Javascript
+                    .col-sm-12.col-xl-6
+                      ul.list-group.list-group-flush
+                        li.list-group-item 
+                          span.font-weight-bold Toolkits
+                        li.list-group-item React
+                        li.list-group-item Bootstrap
+            .card
+              .img-card
+                img(src="/images/node.svg" alt="imagen backend").card-img-top
+              .card-body.text-center
+                h5.card-title Backend
+                .container
+                  .row
+                    .col-sm-12.col-xl-6
+                      ul.list-group.list-group-flush
+                        li.list-group-item 
+                          span.font-weight-bold Lenguajes
+                        li.list-group-item Javascript-Node
+                        li.list-group-item Php
+                    .col-sm-12.col-xl-6
+                      ul.list-group.list-group-flush
+                        li.list-group-item 
+                          span.font-weight-bold Frameworks
+                        li.list-group-item Express
     section.container
       .row.justify-content-center
         .col-12.col-lg-9
           .text-center
-            h2 Portafolio
+            .projects-header
+              h2 Portafolio de proyectos
       .projects.text-center
         each post in posts
-          .row.justify-content-center
-            .col-12.col-lg-9
-              .blog
-                .view-post
-                  .proyect-header
-                    h1= post.title
-                  .view-post-body
-                    | !{post.sanitizedHtml}
+          .blog
+            .view-post
+              .proyect-header
+                h1= post.title
+              .view-post-body
+                | !{post.sanitizedHtml}
     include common/footer.pug
     +footer()

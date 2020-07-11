@@ -40,8 +40,8 @@ footer a {
 }
 
 .skills {
-  width: 75%;
-  margin: 40px auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
   min-height: 500px;
 }
 
@@ -70,6 +70,10 @@ footer a {
 
 .projects {
   min-height: 300px;
+}
+
+.projects-header {
+  margin-bottom: 60px;
 }
 
 .blog {
@@ -172,12 +176,15 @@ h1 a:hover {
   margin-bottom: 10px;
 }
 
-/* .projects .view-post {
-  border-top-style: dotted;
-  border-bottom-style: dotted;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-} */
+.projects .view-post {
+  /* border-top-style: dotted;
+  border-bottom-style: dotted; */
+  border-style: solid;
+  /* border-top-width: 1px;
+  border-bottom-width: 1px; */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .proyect-header {
   min-height: 50px;
@@ -189,12 +196,12 @@ h1 a:hover {
   justify-content: center;
 }
 
-.markdown img {
+/* .markdown img {
   border-left-style: dotted;
   border-right-style: dotted;
   border-left-width: 1px;
   border-right-width: 1px;
-}
+} */
 
 /*
 Copyright (c) 2017 Chris Patuzzo
