@@ -177,13 +177,45 @@ h1 a:hover {
 }
 
 .projects .view-post {
-  /* border-top-style: dotted;
-  border-bottom-style: dotted; */
-  border-style: solid;
-  /* border-top-width: 1px;
-  border-bottom-width: 1px; */
-  margin-top: 20px;
+  /* border-top-style: solid;
+  border-bottom-style: solid; */
+  /* border-radius: 20px; */
   margin-bottom: 20px;
+}
+
+.top-post {
+  width: 100%;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-left-style: solid;
+  height: 80px;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  margin-bottom: 40px;
+}
+
+.bottom-post {
+  width: 100%;
+  border-bottom-style: solid;
+  border-right-style: solid;
+  border-left-style: solid;
+  height: 80px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 400px){
+  .top-post {
+    height: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+  .bottom-post {
+    height: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
 }
 
 .proyect-header {
@@ -194,14 +226,17 @@ h1 a:hover {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-/* .markdown img {
+  /* nuevas */
   border-left-style: dotted;
   border-right-style: dotted;
-  border-left-width: 1px;
-  border-right-width: 1px;
-} */
+}
+
+.markdown img {
+  /* border-left-style: dotted;
+  border-right-style: dotted; */
+  /* border-left-width: 1px;
+  border-right-width: 1px; */
+}
 
 /*
 Copyright (c) 2017 Chris Patuzzo

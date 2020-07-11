@@ -63,11 +63,15 @@ html(lang='es')
               h2 Portafolio de proyectos
       .projects.text-center
         each post in posts
-          .blog
-            .view-post
-              .proyect-header
-                h1= post.title
-              .view-post-body
-                | !{post.sanitizedHtml}
+          .row.justify-content-center
+            .col-12.col-lg-9
+              .blog
+                .view-post
+                  .top-post
+                  .proyect-header
+                    h1= post.title
+                  .view-post-body
+                    | !{post.sanitizedHtml}
+                  .bottom-post
     include common/footer.pug
     +footer()
