@@ -10,12 +10,26 @@ mixin footer()
   script(src="/bootstrap/js/bootstrap.min.js")
   
   script.
-    var url = $(location).attr('pathname');
+    const url = $(location).attr('pathname');
+    const hash = $(location).attr('hash');
     if(url.includes('/blog')){
       $("#link-blog").addClass("active")
     }
-    else if (url.includes('link-portafolio')) {
+    else if (hash.includes('portafolio')) {
       $("#link-portafolio").addClass("active")
-    }else {
+    }
+    else {
       $("#link-inicio").addClass("active")
+    }
+    
+    function portafolioClick(e) {
+      let url = $(location).attr('pathname');
+      if(url.includes('/blog')){
+        location.href="/#portafolio";
+      }
+      else {
+        $("#link-portafolio").addClass("active");
+        $("#link-blog").removeClass("active");
+        $("#link-inicio").removeClass("active");
+      }
     }
