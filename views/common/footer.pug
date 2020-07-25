@@ -33,3 +33,12 @@ mixin footer()
         $("#link-inicio").removeClass("active");
       }
     }
+
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        document.getElementById("navbar").classList.add("alter-nav");
+      } else {
+        document.getElementById("navbar").classList.remove("alter-nav");
+      }
+    }
