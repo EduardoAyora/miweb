@@ -1,40 +1,51 @@
-header {
-  /* navbar es fixed por lo tanto ponemos margin bottom aqui */
-  height: 55px;
-}
-
 .container > p {
   font-size: 20px;
 }
 
 .hero {
-  height: 300px;
+  height: 100vh;
   display: flex;
   align-items: center;
-  color: #304AA0;
-  font-size: 1.5em;
+  color: white;
+  background-image: url(../images/blue.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero p {
-  font-size: inherit;
+  font-size: 2em;
 }
 
 .hero h1 {
+  font-size: 4em;
   font-family: "eurostile", sans-serif;
   font-weight: 800;
 }
 
 .medium {
-  height: 300px;
-  padding-top: 50px;
+  height: 50vh;
+  padding-top: 100px;
   background: #304AA0;
   color: white;
   margin-bottom: -200px;
-  font-size: 1.5em;
 }
 
 .medium p {
-  font-size: inherit;
+  font-size: 2em;
+}
+
+@media screen and (max-width: 700px){
+  .hero h1 {
+      font-size: 3em;
+  }
+  .hero p,
+  .medium p
+  {
+    font-size: 1.75em;
+  }
+  .medium {
+    padding-top: 50px;
+  }
 }
 
 .skills {
