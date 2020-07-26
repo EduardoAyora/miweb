@@ -34,7 +34,7 @@
   font-size: 2em;
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 700px) {
   .hero h1 {
       font-size: 3em;
   }
@@ -50,12 +50,16 @@
 
 .skills {
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   min-height: 500px;
 }
 
 .card-group {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card-group .card {
+  margin-bottom: 0px;
 }
 
 .simple-form {
@@ -83,10 +87,6 @@
 
 .projects {
   min-height: 300px;
-}
-
-.projects-header {
-  margin-bottom: 60px;
 }
 
 .blog {
@@ -146,7 +146,6 @@ h1 a:hover {
 }
 
 .meta {
-  float: right;
   display: inline-block;
   margin: auto 40px;
   color: #667;
@@ -189,12 +188,6 @@ h1 a:hover {
   margin-bottom: 10px;
 }
 
-#portafolio h2 {
-  line-height: 1.12;
-  font-family: "eurostile", sans-serif;
-  font-weight: 800;
-}
-
 .projects .view-post {
   margin-bottom: 20px;
 }
@@ -221,7 +214,7 @@ h1 a:hover {
   margin-top: 40px;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px) {
   .top-post {
     height: 40px;
     border-top-left-radius: 40px;
@@ -232,10 +225,6 @@ h1 a:hover {
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
   }
-}
-
-.proyect-header {
-  min-height: 50px;
 }
 
 .markdown {
@@ -260,6 +249,33 @@ h1 a:hover {
 
 .alter-nav {
   background-color:rgba(26,52,136,0.6) !important;
+}
+
+#portafolio {
+  border-top: dashed;
+  border-color: #7284C7;
+  padding-top: 50px;
+}
+
+#portafolio .projects-header h2 {
+  font-family: "eurostile", sans-serif;
+  font-weight: 800;
+  font-size: 3em;
+  color: #304AA0;
+}
+
+#portafolio .projects h3,
+#portafolio .projects h2 {
+  color: #4A61AD;
+}
+
+#portafolio .projects h3
+{
+  font-size: 2.5em;
+}
+
+#portafolio .projects h2 {
+  font-size: 2em;
 }
 
 footer {

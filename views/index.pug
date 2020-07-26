@@ -55,23 +55,23 @@ html(lang='es')
                         li.list-group-item 
                           span.font-weight-bold Frameworks
                         li.list-group-item Express
-    section(id="portafolio").container
-      .row.justify-content-center
-        .col-12.col-lg-9
-          .text-center
-            .projects-header
-              h2 Portafolio de proyectos
-      .projects.text-center
-        each post in posts
-          .row.justify-content-center
-            .col-12.col-lg-9
-              .blog
-                .view-post
-                  .top-post
-                  .proyect-header
-                    h1= post.title
-                  .view-post-body
-                    | !{post.sanitizedHtml}
-                  .bottom-post
+    section(id="portafolio")
+      .container
+        .row.justify-content-center
+          .col-12.col-lg-9
+            .text-center
+              .projects-header
+                h2.font-weight-bold Portafolio de proyectos
+        .projects.text-center
+          each post in posts
+            .row.justify-content-center
+              .col-12.col-lg-9
+                .blog
+                  .view-post
+                    .top-post
+                    h3.font-weight-bold= post.title
+                    .view-post-body
+                      | !{post.sanitizedHtml}
+                    .bottom-post
     include common/footer.pug
     +footer()
