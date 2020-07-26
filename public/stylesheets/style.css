@@ -194,6 +194,7 @@ h1 a:hover {
 
 .top-post {
   width: 100%;
+  border-color: #7284C7;
   border-top-style: solid;
   border-right-style: solid;
   border-left-style: solid;
@@ -205,6 +206,7 @@ h1 a:hover {
 
 .bottom-post {
   width: 100%;
+  border-color: #7284C7;
   border-bottom-style: solid;
   border-right-style: solid;
   border-left-style: solid;
@@ -234,6 +236,7 @@ h1 a:hover {
   /* nuevas */
   border-left-style: dotted;
   border-right-style: dotted;
+  border-color: #7284C7;
 }
 
 #navbar {
