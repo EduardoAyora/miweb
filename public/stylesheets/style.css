@@ -56,6 +56,13 @@
 
 .card-group {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: center-skills 4s ease forwards;
+}
+
+@keyframes center-skills {
+  from {left: 200px}
+  to {left: 0px}
 }
 
 .card-group .card {
