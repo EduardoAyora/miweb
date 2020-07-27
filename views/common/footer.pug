@@ -8,11 +8,6 @@ mixin footer()
         i.fab.fa-instagram.fa-lg  Instagram
   script(src="/javascripts/jquery.min.js")
   script(src="/bootstrap/js/bootstrap.min.js")
-
-  //- libreria para que las animaciones se muestren al hacer scroll
-  script(src="/javascripts/wow.min.js")
-  script.
-    new WOW().init();
   
   script.
 
@@ -40,7 +35,7 @@ mixin footer()
         $("#link-inicio").removeClass("active");
       }
     }
-    // --Navbar--
+    // --!Navbar--
 
     // --ANIMACIONES--
     window.onscroll = function() {scrollFunction()};
@@ -49,10 +44,12 @@ mixin footer()
       const rectElement = element.getBoundingClientRect();
       return rectElement.top + document.documentElement.scrollTop;
     }
-    const card = document.getElementById("card-group");
-    console.log(distanceTop(card));
 
-    function scrollFunction() {
+    var tresCuartosScreen = window.innerHeight * 0.75;
+    //- var unCuartoScreen = window.innerHeight * 0.25;
+
+    // --efectos--
+    function navbarTransition() {
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
         document.getElementById("navbar").classList.add("alter-nav");
       } else {
@@ -60,8 +57,35 @@ mixin footer()
       }
     }
 
+    const skillEffect = () => {
+      const cardGroup = document.getElementById("card-group");
+      const cardGroupDistanceTop = distanceTop(cardGroup);
+      const topLimitDistance = cardGroupDistanceTop - tresCuartosScreen;
+      let bottomLimitDistance;
+      if (cardGroup.clientHeight < 700) {
+        bottomLimitDistance = cardGroupDistanceTop + (cardGroup.clientHeight / 2);
+      }
+      else {
+        bottomLimitDistance = cardGroupDistanceTop + (cardGroup.clientHeight * 3 / 4);
+      }
+      if ((document.documentElement.scrollTop > topLimitDistance) &&
+        (document.documentElement.scrollTop < bottomLimitDistance )) {
+        cardGroup.classList.remove("card-group-out");
+        cardGroup.classList.add("card-group-in");
+      } else {
+        cardGroup.classList.remove("card-group-in");
+        cardGroup.classList.add("card-group-out");
+      }
+    }
 
-    // --ANIMACIONES--
+    // --!efectos--
+
+    function scrollFunction() {
+      navbarTransition();
+      skillEffect();
+    }
+
+    // --!ANIMACIONES--
 
     // --SOMBRA PROYECTOS--
     markdownImages = document.getElementsByClassName("markdown");
@@ -71,4 +95,4 @@ mixin footer()
       markdownImages[i].parentNode.insertBefore(div,markdownImages[i]);
       div.appendChild(markdownImages[i]);
     }
-    // --SOMBRA PROYECTOS--
+    // --!SOMBRA PROYECTOS--
