@@ -58,7 +58,21 @@
 }
 
 .card-group {
+  position: relative;
+  transition: 0.5s;
+}
+
+.card-group-shadow {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.left-card {
+  position: relative;
+  transition: 1s;
+  left: -1200px;
+}
+
+.right-card {
   position: relative;
   transition: 1s;
   left: 1200px;
@@ -68,7 +82,11 @@
   left: 0px;
 }
 
-.card-group-out {
+.left-card-group-out {
+  left: -1200px;
+}
+
+.right-card-group-out {
   left: 1200px;
 }
 

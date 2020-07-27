@@ -59,6 +59,8 @@ mixin footer()
 
     const skillEffect = () => {
       const cardGroup = document.getElementById("card-group");
+      const leftCard = document.getElementById("left-card");
+      const rightCard = document.getElementById("right-card");
       const cardGroupDistanceTop = distanceTop(cardGroup);
       const topLimitDistance = cardGroupDistanceTop - tresCuartosScreen;
       let bottomLimitDistance;
@@ -70,11 +72,17 @@ mixin footer()
       }
       if ((document.documentElement.scrollTop > topLimitDistance) &&
         (document.documentElement.scrollTop < bottomLimitDistance )) {
-        cardGroup.classList.remove("card-group-out");
-        cardGroup.classList.add("card-group-in");
+        leftCard.classList.remove("left-card-group-out");
+        leftCard.classList.add("card-group-in");
+        rightCard.classList.remove("right-card-group-out");
+        rightCard.classList.add("card-group-in");
+        cardGroup.classList.add("card-group-shadow");
       } else {
-        cardGroup.classList.remove("card-group-in");
-        cardGroup.classList.add("card-group-out");
+        leftCard.classList.remove("card-group-in");
+        leftCard.classList.add("left-card-group-out");
+        rightCard.classList.remove("card-group-in");
+        rightCard.classList.add("right-card-group-out");
+        cardGroup.classList.remove("card-group-shadow");
       }
     }
 
