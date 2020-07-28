@@ -46,7 +46,6 @@ mixin footer()
     }
 
     var tresCuartosScreen = window.innerHeight * 0.75;
-    //- var unCuartoScreen = window.innerHeight * 0.25;
 
     // --efectos--
     function navbarTransition() {
@@ -57,10 +56,11 @@ mixin footer()
       }
     }
 
+    var cardGroup = document.getElementById("card-group");
+    var leftCard = document.getElementById("left-card");
+    var rightCard = document.getElementById("right-card");
+
     const skillEffect = () => {
-      const cardGroup = document.getElementById("card-group");
-      const leftCard = document.getElementById("left-card");
-      const rightCard = document.getElementById("right-card");
       const cardGroupDistanceTop = distanceTop(cardGroup);
       const topLimitDistance = cardGroupDistanceTop - tresCuartosScreen;
       let bottomLimitDistance;
@@ -86,11 +86,30 @@ mixin footer()
       }
     }
 
+    var projectPosts = document.getElementsByClassName('project-post');
+    
+    const opacityEffect = () => {
+      let i;
+      for(i = 0; i < projectPosts.length; i++) {
+        const projectPost = projectPosts[i];
+        const projectPostDistanceTop = distanceTop(projectPost);
+        const topLimitDistance = projectPostDistanceTop - tresCuartosScreen;
+        const bottomLimitDistance = projectPostDistanceTop + (projectPost.clientHeight - 400);
+        if ((document.documentElement.scrollTop > topLimitDistance) &&
+          (document.documentElement.scrollTop < bottomLimitDistance )) {
+          projectPost.classList.add("full-opacity");
+        } else {
+          projectPost.classList.remove("full-opacity");
+        }
+      }
+    }
+
     // --!efectos--
 
     function scrollFunction() {
       navbarTransition();
       skillEffect();
+      opacityEffect();
     }
 
     // --!ANIMACIONES--

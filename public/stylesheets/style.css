@@ -301,6 +301,18 @@ h1 a:hover {
   padding-top: 50px;
 }
 
+.project-post {
+  min-height: 600px;
+  padding-bottom: 50px;
+  padding-top: 40px;
+  opacity: 0;
+  transition: 2s;
+}
+
+.full-opacity {
+  opacity: 1;
+}
+
 #portafolio .projects-header h2 {
   font-family: "eurostile", sans-serif;
   font-weight: 800;
