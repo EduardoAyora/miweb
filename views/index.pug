@@ -6,56 +6,57 @@ html(lang='es')
     header
       include common/navbar.pug
       +navbar()
-    section.hero
-      .container.text-center
-        h1 Desarrollador web
-        p.principal-text Sus ideas las pongo en código
-    section.medium
-      .container.text-center
-        p.principal-text.font-weight-bold Tecnologías con las que desarrollo.
-    section.skills
-      .container
-        .row.justify-content-center
-          .col-12.col-lg-9
-            div(id="card-group").card-group
-              .card(id="left-card").left-card
-                .img-card
-                  img(src="/images/frontend.svg" alt="imagen frontend").card-img-top
-                .card-body.text-center
-                  h5.card-title Frontend
-                  .container
-                    .row
-                      .col-sm-12.col-xl-6
-                        ul.list-group.list-group-flush
-                          li.list-group-item 
-                            span.font-weight-bold Lenguajes
-                          li.list-group-item Html
-                          li.list-group-item Css
-                          li.list-group-item Javascript
-                      .col-sm-12.col-xl-6
-                        ul.list-group.list-group-flush
-                          li.list-group-item 
-                            span.font-weight-bold Librerías, etc.
-                          li.list-group-item React
-                          li.list-group-item Bootstrap
-              .card(id="right-card").right-card
-                .img-card
-                  img(src="/images/node.svg" alt="imagen backend").card-img-top
-                .card-body.text-center
-                  h5.card-title Backend
-                  .container
-                    .row
-                      .col-sm-12.col-xl-6
-                        ul.list-group.list-group-flush
-                          li.list-group-item 
-                            span.font-weight-bold Lenguajes
-                          li.list-group-item Javascript-Node
-                          li.list-group-item Php
-                      .col-sm-12.col-xl-6
-                        ul.list-group.list-group-flush
-                          li.list-group-item 
-                            span.font-weight-bold Frameworks
-                          li.list-group-item Express
+    .back-image
+      section.hero
+        .container.text-center
+          h1 Desarrollador web
+          p.principal-text Sus ideas las pongo en código
+      section.medium
+        .container.text-center
+          p.principal-text.font-weight-bold Tecnologías con las que desarrollo.
+      section.skills
+        .container.transparent
+          .row.justify-content-center
+            .col-12.col-lg-9
+              div(id="card-group").card-group
+                .card(id="left-card").left-card
+                  .img-card
+                    img(src="/images/frontend.svg" alt="imagen frontend").card-img-top
+                  .card-body.text-center
+                    h5.card-title Frontend
+                    .container
+                      .row
+                        .col-sm-12.col-xl-6
+                          ul.list-group.list-group-flush
+                            li.list-group-item 
+                              span.font-weight-bold Lenguajes
+                            li.list-group-item Html
+                            li.list-group-item Css
+                            li.list-group-item Javascript
+                        .col-sm-12.col-xl-6
+                          ul.list-group.list-group-flush
+                            li.list-group-item 
+                              span.font-weight-bold Librerías, etc.
+                            li.list-group-item React
+                            li.list-group-item Bootstrap
+                .card(id="right-card").right-card
+                  .img-card
+                    img(src="/images/node.svg" alt="imagen backend").card-img-top
+                  .card-body.text-center
+                    h5.card-title Backend
+                    .container
+                      .row
+                        .col-sm-12.col-xl-6
+                          ul.list-group.list-group-flush
+                            li.list-group-item 
+                              span.font-weight-bold Lenguajes
+                            li.list-group-item Javascript-Node
+                            li.list-group-item Php
+                        .col-sm-12.col-xl-6
+                          ul.list-group.list-group-flush
+                            li.list-group-item 
+                              span.font-weight-bold Frameworks
+                            li.list-group-item Express
     section(id="portafolio")
       .container
         .row.justify-content-center

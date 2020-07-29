@@ -2,14 +2,18 @@
   font-size: 20px;
 }
 
+.back-image {
+  background-image: url(../images/blue.svg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .hero {
   height: 100vh;
   display: flex;
   align-items: center;
   color: white;
-  background-image: url(../images/blue.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .hero p {
@@ -24,10 +28,10 @@
 
 .medium {
   height: 50vh;
-  padding-top: 100px;
+  padding-top: 15vh;
   background: #304AA0;
   color: white;
-  margin-bottom: -200px;
+  margin-bottom: -25vh;
 }
 
 .medium p {
@@ -49,11 +53,8 @@
 }
 
 .skills {
-  margin-top: 20px;
-  margin-bottom: 40px;
   padding-top: 20px;
-  padding-bottom: 20px;
-  min-height: 500px;
+  min-height: 75vh;
   overflow-x: hidden;
 }
 
