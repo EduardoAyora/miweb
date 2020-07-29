@@ -313,6 +313,16 @@ h1 a:hover {
   opacity: 1;
 }
 
+.project-post .markdown img {
+  position: relative;
+  top: 100vh;
+  transition: 1s;
+}
+
+.no-distance-top {
+  top: 0px !important;
+}
+
 #portafolio .projects-header h2 {
   font-family: "eurostile", sans-serif;
   font-weight: 800;

@@ -104,12 +104,34 @@ mixin footer()
       }
     }
 
+    var postsImages = document.querySelectorAll(".project-post .markdown img");
+
+    const imagesEffect = () => {
+      let i;
+      for(i = 0; i < postsImages.length; i++) {
+        const postImage = postsImages[i];
+        const imageContainer = postImage.parentElement;
+        const imageDistanceTop = distanceTop(imageContainer);
+        const topLimitDistance = imageDistanceTop - tresCuartosScreen;
+        const bottomLimitDistance = imageDistanceTop + (postImage.clientHeight);
+        console.log(topLimitDistance)
+        console.log(bottomLimitDistance)
+        if ((document.documentElement.scrollTop > topLimitDistance) &&
+          (document.documentElement.scrollTop < bottomLimitDistance )) {
+          postImage.classList.add("no-distance-top");
+        } else {
+          postImage.classList.remove("no-distance-top");
+        }
+      }
+    }
+
     // --!efectos--
 
     function scrollFunction() {
       navbarTransition();
       skillEffect();
       opacityEffect();
+      imagesEffect();
     }
 
     // --!ANIMACIONES--
