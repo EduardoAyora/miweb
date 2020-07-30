@@ -8,9 +8,12 @@ mixin footer()
         i.fab.fa-instagram.fa-lg  Instagram
   script(src="/javascripts/jquery.min.js")
   script(src="/bootstrap/js/bootstrap.min.js")
+
+  script(src="javascripts/wow.min.js")
+  script.
+    new WOW().init();
   
   script.
-
     // --Navbar--
     const url = $(location).attr('pathname');
     const hash = $(location).attr('hash');
@@ -104,39 +107,17 @@ mixin footer()
       }
     }
 
-    var postsImages = document.querySelectorAll(".project-post .markdown img");
-
-    const imagesEffect = () => {
-      let i;
-      for(i = 0; i < postsImages.length; i++) {
-        const postImage = postsImages[i];
-        const imageContainer = postImage.parentElement;
-        const imageDistanceTop = distanceTop(imageContainer);
-        const topLimitDistance = imageDistanceTop - tresCuartosScreen;
-        const bottomLimitDistance = imageDistanceTop + (postImage.clientHeight);
-        console.log(topLimitDistance)
-        console.log(bottomLimitDistance)
-        if ((document.documentElement.scrollTop > topLimitDistance) &&
-          (document.documentElement.scrollTop < bottomLimitDistance )) {
-          postImage.classList.add("no-distance-top");
-        } else {
-          postImage.classList.remove("no-distance-top");
-        }
-      }
-    }
-
     // --!efectos--
 
     function scrollFunction() {
       navbarTransition();
       skillEffect();
       opacityEffect();
-      imagesEffect();
     }
 
     // --!ANIMACIONES--
 
-    // --SOMBRA PROYECTOS--
+    // --APLICAR CLASES CSS--
     markdownImages = document.getElementsByClassName("markdown");
     for(var i = 0; i < markdownImages.length; i++){
       const div = document.createElement('div');
@@ -144,4 +125,11 @@ mixin footer()
       markdownImages[i].parentNode.insertBefore(div,markdownImages[i]);
       div.appendChild(markdownImages[i]);
     }
-    // --!SOMBRA PROYECTOS--
+
+    var postsImages = document.querySelectorAll(".project-post .markdown img");
+    for(var i = 0; i < postsImages.length; i++) {
+      postsImages[i].classList.add("wow");
+      postsImages[i].classList.add("animate__animated");
+      postsImages[i].classList.add("animate__fadeInUp");
+    }
+    // --!APLICAR CLASES CSS--
