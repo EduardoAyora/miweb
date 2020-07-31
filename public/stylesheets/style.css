@@ -135,6 +135,12 @@
   font-family: 'Museo Sans W01', helvetica, arial, sans-serif;
 }
 
+.blog-post {
+  min-height: 600px;
+  font-family: 'Museo Sans W01', helvetica, arial, sans-serif;
+  overflow-x: hidden;
+}
+
 .centered {
   display: flex;
   justify-content: center;
