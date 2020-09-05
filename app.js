@@ -39,6 +39,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 app.use('/fa', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
 
+// sirviendo los archivos estaticos de mi tienda en react
+app.use('/tienda_react', express.static(path.join(__dirname, '../tienda_react/build')));
+
 app.use(flash());
 app.use(session({
   // name: 'session-id',
@@ -55,6 +58,13 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blog', blogRouter);
+
+// servir mi tienda de React en todas sus rutas (cuando se recarga el navegador)
+var storeRouter = express.Router();
+storeRouter.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../tienda_react/build', 'index.html'));
+});
+app.use('/tienda_react', storeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
