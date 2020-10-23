@@ -40,7 +40,7 @@ app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'
 app.use('/fa', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
 
 // sirviendo los archivos estaticos de mi tienda en react
-app.use('/tienda_react', express.static(path.join(__dirname, '../tienda_react/build')));
+app.use('/menu', express.static(path.join(__dirname, '../tienda_react/build')));
 
 app.use(flash());
 app.use(session({
@@ -64,7 +64,7 @@ var storeRouter = express.Router();
 storeRouter.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '../tienda_react/build', 'index.html'));
 });
-app.use('/tienda_react', storeRouter);
+app.use('/menu', storeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
