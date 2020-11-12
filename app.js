@@ -39,8 +39,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 app.use('/fa', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
 
-// sirviendo los archivos estaticos de mi tienda en react
+// sirviendo los archivos estaticos de mis tiendas en react
 app.use('/menu', express.static(path.join(__dirname, '../tienda_react/build')));
+app.use('/rapiweb', express.static(path.join(__dirname, '../rapi-web-client/build')));
 
 app.use(flash());
 app.use(session({
@@ -59,12 +60,18 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blog', blogRouter);
 
-// servir mi tienda de React en todas sus rutas (cuando se recarga el navegador)
+// servir mis tiendas de React en todas sus rutas (cuando se recarga el navegador)
 var storeRouter = express.Router();
 storeRouter.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '../tienda_react/build', 'index.html'));
 });
 app.use('/menu', storeRouter);
+
+const rapiWebRouter = express.Router();
+rapiWebRouter.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../rapi-web-client/build', 'index.html'));
+});
+app.use('/rapiweb', rapiWebRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
